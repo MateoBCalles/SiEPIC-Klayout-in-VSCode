@@ -1,4 +1,4 @@
-# KLayout VS Code Examples
+# KLayout VSCode Examples
 
 This repository demonstrates how to use KLayout with Visual Studio Code (VS Code) for faster layout development, especially useful for UBC layout workflows.
 
