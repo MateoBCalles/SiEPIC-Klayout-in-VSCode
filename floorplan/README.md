@@ -5,21 +5,11 @@ We are using an automated merging script to combine the layouts.
 
 Step 1: In this step, you allocate yourself space in the shared design space. 
 
-Step 2: In this step, you create your personal design layout file, separate from the rest. This is the file that will contain your layout designs, please add your designs ONLY to that file in 'gds_in'. Commit your changes as your design changes.
+Step 2: In this step, you create your personal design layout function using Apodized Bragg Reflector.ipynb as an example. Commit your changes as your design changes.
 
 Step 3: In this step, you merge your design layout file to the merged layout file to be submitted.
 
-### Video tutorial on how to include and merge your designs
-Follow the instructions below to merge your layout and designs. Please use [GitHub desktop](https://desktop.github.com/) to perform this process. If you're having trouble, please ask for help using the issues tab.
 
-<div align="center">
-      <a href="https://www.youtube.com/watch?v=wfUUU6olSxU">
-     <img 
-      src="https://img.youtube.com/vi/wfUUU6olSxU/0.jpg" 
-      alt="Everything Is AWESOME" 
-      style="width:50%;">
-      </a>
-</div>
 
 ## Detailed instructions:
 
@@ -38,4 +28,13 @@ Follow the instructions below to merge your layout and designs. Please use [GitH
   - This copys the floorplan from the mainchip floorplan .oas file in gds_floorplan
   - Adjust accordingly
   - Comments in the example should walk you through whats necessary
-  - **IMPORTANT** 
+  - **IMPORTANT**
+
+3. Step 3:
+![03_merge](tutorial/03_merge.gif)
+  - Open the macro editor in KLayout (F5)
+  - Right click anywhere on the left panel and click 'add location'
+  - Navigate to the 'merge_script' directory in this repository and click 'OK'
+  - open the 'merge_script' file from the macro editor and run it.
+  - Check if your design has been merged in the 'gds_merge' layout file 
+  - **IMPORTANT** Commit back to GitHub. 
