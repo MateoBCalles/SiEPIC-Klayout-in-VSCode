@@ -7,7 +7,7 @@ We are using an automated merging script to combine the layouts.
 
 Step 1: In this step, you allocate yourself space in the shared design space. 
 
-Step 2: In this step, you create your personal design layout function using Apodized Bragg Reflector.ipynb as an example. Commit your changes as your design changes.
+Step 2: In this step, you create your personal design layout function using "Bragg Reflector.ipynb" as an example. Commit your changes as your design changes.
 
 Step 3: In this step, you merge your design layout file to the merged layout file to be submitted.
 
