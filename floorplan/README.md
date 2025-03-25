@@ -28,7 +28,7 @@ Step 3: In this step, you merge your design layout file to the merged layout fil
   - This copys the floorplan from the mainchip floorplan .oas file in gds_floorplan
   - Adjust accordingly
   - Comments in the example should walk you through whats necessary
-  - **IMPORTANT**
+  - **IMPORTANT** Commit back to GitHub. 
 
 3. Step 3:
 ![03_merge](tutorial/03_merge.gif)
