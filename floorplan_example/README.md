@@ -25,7 +25,7 @@ Step 3: In this step, you merge your design layout file to the merged layout fil
 
 2. Step 2:
 ![02_notebook](../gifs_tutorial/02_pdkcode.png)  
-  - Open the notebook example: "Apodized Bragg Reflector.ipynb"
+  - Open the notebook example: "Bragg Reflector.ipynb"
   - Change the PDK location
   - This copys the floorplan from the mainchip floorplan .oas file in gds_floorplan
   - Adjust accordingly, ie Pcells is def
