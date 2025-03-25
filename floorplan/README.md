@@ -1,4 +1,4 @@
-Pulled from SiEPICfab_ZEP04_Shuksan_20250215 README.md as this is the intent of this example
+Pulled from SiEPICfab_ZEP04_Shuksan_20250215 README.md
 
 # Submission Process Slightly modified
 We are using an automated merging script to combine the layouts.
