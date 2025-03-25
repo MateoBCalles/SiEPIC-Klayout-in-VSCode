@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<klayout-macro>
+ <description/>
+ <version/>
+ <category>pymacros</category>
+ <prolog/>
+ <epilog/>
+ <doc/>
+ <autorun>false</autorun>
+ <autorun-early>false</autorun-early>
+ <priority>0</priority>
+ <shortcut/>
+ <show-in-menu>false</show-in-menu>
+ <group-name/>
+ <menu-path/>
+ <interpreter>python</interpreter>
+ <dsl-interpreter-name/>
+ <text># Merge layouts for Dream Photonics
+# by Lukas Chrostowski, 2020
+
+GDS_CLEAN = False
+GDS_FLATTEN = True  # The merge of GDS unfortunately merges cells with conflicts.
+GDS_ORIGIN = True   # make sure the layouts are tiled nicely
+
+# Tile size
+tile_x, tile_y = 610, 405
+tile_dx, tile_dy = 5, 5
+tile_nx, tile_ny = 4, 4
+
+
+import pya
+from pya import *
+
+
+if 0:
+    from SiEPIC.utils import get_layout_variables
+    TECHNOLOGY, lv, ly, cell = get_layout_variables()
+    layout = ly
+else:
+    layout = pya.Layout()
+
+
+layout.dbu = 0.001
+dbu = layout.dbu
+
+from SiEPIC.utils import get_technology, get_technology_by_name
+TECHNOLOGY = get_technology_by_name('SiEPICfab_EBeam_ZEP')
+
+# path for this python file
+import os, inspect
+path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+
+# Load all the GDS files in gds_floorplan:
+path2 = os.path.normpath(os.path.join(path,"../gds_floorplan"))
+print(path2)  # normpath makes it work for both linux and windows
+_, _, files = next(os.walk(path2), (None, None, []))
+for fp in [f for f in files if 'oas' in f]:
+  print("gds_floorplan: %s" % fp)
+  layout.read(os.path.join(path2,fp))
+
+# Load all the GDS files in gds_in:
+path2 = os.path.normpath(os.path.join(path,"../gds_in"))
+path3 = os.path.normpath(os.path.join(path,"../gds_in_clean"))
+_, _, files = next(os.walk(path2), (None, None, []))
+
+# tiling designs
+xx,yy = 0,0
+
+# Load all the gds_in files:
+for f in [f for f in files if 'oas' in f.lower() or 'gds' in f.lower()]:
+  print ("Merging: %s" % f)
+
+  '''
+  # this is fast, but if there are name conflicts, KLayout merges those cells resulting in major problems
+  layout.read(os.path.join(path2,f))
+  
+  '''
+  # this does a more careful replacement using copy and paste
+  # but some KLayout versions (esp. Mac OSX) have problems with arrays
+  
+  layout2 = pya.Layout()
+  
+  layout2.read(os.path.join(path2,f))
+
+  for cell in layout2.top_cells():
+    # find the matching cell.name in the floorplan gds
+    fp_cell = layout.cell(cell.name)
+    
+    if fp_cell:
+      print(" top cell: %s" % cell.name)
+        
+      # Create sub-cell under floorplanning cell
+      subcell = layout.create_cell(f.replace('.','_'))
+      t = Trans(Trans.R0, 0,0)
+      fp_cell.insert(CellInstArray(subcell.cell_index(), t))
+        
+      # copy
+      subcell.copy_tree(cell)    
+    
+
+# Save the layout, without PCell info, for fabrication
+save_options = pya.SaveLayoutOptions()
+save_options.write_context_info=False  # remove $$$CONTEXT_INFO$$$
+save_options.format='GDS' # standard format
+save_options.format='OASIS' # smaller file size
+save_options.oasis_compression_level=10
+save_options.oasis_permissive=True
+file_out=os.path.normpath(os.path.join(path,"../gds_merge",fp))
+print("saving output %s: %s" % (save_options.format, file_out) )
+try:
+    layout.write(file_out,save_options)
+except:
+    try:
+        layout.write(file_out)
+    except:
+        raise Exception("Problem exporting your layout.")
+
+</text>
+</klayout-macro>
