@@ -14,7 +14,7 @@ Step 3: In this step, you merge your design layout file to the merged layout fil
 ## Detailed instructions:
 
 1. Step 1:  
-![01_floorplan](tutorial/01_floorplan.gif)
+![01_floorplan](gifs_tutorial/floorplan/01_floorplan.gif)
   - Pull from GitHub the repo 
   - Open 'gds_floorplan'.
   - Open the floorplan layout file inside the folder.
@@ -31,7 +31,7 @@ Step 3: In this step, you merge your design layout file to the merged layout fil
   - **IMPORTANT** Commit back to GitHub. 
 
 3. Step 3:
-![03_merge](tutorial/03_merge.gif)
+![03_merge](gifs_tutorial/floorplan/03_merge.gif)
   - Open the macro editor in KLayout (F5)
   - Right click anywhere on the left panel and click 'add location'
   - Navigate to the 'merge_script' directory in this repository and click 'OK'
