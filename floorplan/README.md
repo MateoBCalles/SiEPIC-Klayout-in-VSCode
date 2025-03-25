@@ -34,12 +34,8 @@ Follow the instructions below to merge your layout and designs. Please use [GitH
   - **IMPORTANT** Commit back to GitHub. 
 
 2. Step 2:  
-![02_layout](tutorial/02_layout.gif)
-  - Copy your cell from the floorplan file
-  - Create a new layout file with dummy top cell
-  - Paste the copied cell in the new layout file
-  - Delete the original dummy top cell
-  - Save your layout to 'designs' directory with the same name of your cell.
   - Open the notebook example: "Apodized Bragg Reflector.ipynb"
+  - This copys the floorplan from the mainchip floorplan .oas file in gds_floorplan
+  - Adjust accordingly
   - Comments in the example should walk you through whats necessary
-  - **IMPORTANT** Commit back to GitHub.
+  - **IMPORTANT** 
