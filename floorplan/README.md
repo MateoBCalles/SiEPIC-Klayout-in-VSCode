@@ -40,6 +40,6 @@ Follow the instructions below to merge your layout and designs. Please use [GitH
   - Paste the copied cell in the new layout file
   - Delete the original dummy top cell
   - Save your layout to 'designs' directory with the same name of your cell.
-  - Use SiEPIC Tools 'Export to fabrication' to save your cell safely. (SiEPIC Menu → Export Design). This creates a layout with _static.oas added to the file name. Move that file to the 'gds_in' folder
+  - Open the notebook example: "Apodized Bragg Reflector.ipynb"
+  - Comments in the example should walk you through whats necessary
   - **IMPORTANT** Commit back to GitHub.
-"@
