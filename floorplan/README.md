@@ -1,6 +1,6 @@
 Pulled from SiEPICfab_ZEP04_Shuksan_20250215 README.md as this is the intent of this example
 
-# Submission Process
+# Submission Process Slightly modified
 We are using an automated merging script to combine the layouts.
 
 Step 1: In this step, you allocate yourself space in the shared design space. 
