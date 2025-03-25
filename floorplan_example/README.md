@@ -1,4 +1,6 @@
-Pulled from SiEPICfab_ZEP04_Shuksan_20250215 README.md
+Modified from SiEPICfab_ZEP04_Shuksan_20250215 README.md
+
+Download the entire floorplan_example folder before continuing 
 
 # Submission Process Slightly modified
 We are using an automated merging script to combine the layouts.
